@@ -52,7 +52,7 @@ function deliveryType($cost, $delopt)
     <form method="POST">
         <input type="radio" id="delivery" name="ordertype" value="Delivery" onClick="deliveryType($cost, 'Delivery')">
         <label for="delivery">Delivery (+£5)</label><br>
-        <input type="radio" id="collection" name="ordertype" value="Collection" onClick="deliveryType($cost, 'Delivery')">
+        <input type="radio" id="collection" name="ordertype" value="Collection" onClick="deliveryType($cost, 'Collection')">
         <label for="collection">Collection</label><br>
     </form>
     <form method="POST" action="{{ route('confirmOrder', $items, $delopt, $cost) }}">
