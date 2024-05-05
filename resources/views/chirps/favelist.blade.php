@@ -64,8 +64,8 @@ $chirplist = [];
     </form>
     <?php array_push($items, $delopt) ?>
     <?php array_push($items, $cost) ?>
-    <form action="{{ route('chirps.confirm') }}">
-        <button class="mt-4 text-lg text-gray-900" :href="route('chirps.confirm')" onclick="event.preventDefault(); this.closest('form').submit()">
+    <form action="{{ route('chirps.confirms') }}">
+        <button class="mt-4 text-lg text-gray-900" :href="route('chirps.confirms')" onclick="event.preventDefault(); this.closest('form').submit()">
             {{ __('Place Order') }}
         </button>
     </form>
