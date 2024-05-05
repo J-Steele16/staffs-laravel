@@ -26,6 +26,11 @@ class ChirpController extends Controller
         return redirect(route('chirps.favourites'));
    }
 
+   public function confirmOrder($items, $deltype, $cost): RedirectResponse
+   {
+        return redirect(route('chirps.confirm', [$items, $deltype, $cost]));
+   }
+
    /**
     * Show the Chirps in Favourites
     */

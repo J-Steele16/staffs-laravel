@@ -53,8 +53,8 @@ function deliveryType($cost, $deltype)
         <input type="radio" id="collection" name="ordertype" value="Collection">
         <label for="collection">Collection</label><br>
     </form>
-    <form method="POST" action="route('chirps.confirm', [$items, $deltype, $cost]);">
-        <button class="mt-4 text-lg text-gray-900" :href="route('chirps.confirm', [$items, $deltype, $cost])" onclick="event.preventDefault(); this.closest('form').submit();">
+    <form method="POST" action="{{ route('confirmOrder', $items, $deltype, $cost) }}">
+        <button class="mt-4 text-lg text-gray-900" :href="route('chirps.confirm', $items, $deltype, $cost)" onclick="event.preventDefault(); this.closest('form').submit();">
             {{ __('Place Order') }}
         </button>
     </form>
