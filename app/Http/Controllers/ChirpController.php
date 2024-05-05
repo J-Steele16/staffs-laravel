@@ -13,7 +13,7 @@ class ChirpController extends Controller
     public function addToFavourites(Chirp $chirp): RedirectResponse
    {
         $favourites = session('favourites', collect([]));
-        $favourites->push($chirp);
+        array_push($favourites, $chirp);
         session(['favourites' => $favourites]);
         return redirect(route('chirps.index'));
    }
