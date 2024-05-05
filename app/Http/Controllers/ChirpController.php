@@ -28,12 +28,10 @@ class ChirpController extends Controller
 
     public function confirms($chirplist): RedirectResponse
     {
-        foreach ($chirplist as $chirp) {
-            $favourites = session('favourites', collect([]));
-            $favourites->forget($chirp);
-            session(['favourites' => $favourites]);
-        };
-        return redirect(route('chirps.index'))
+        $favourites = session('favourites', collect([]));
+        $favourites = [];
+        session(['favourites' => $favourites]);
+        return redirect(route('chirps.index'));
     }
 
    /**
