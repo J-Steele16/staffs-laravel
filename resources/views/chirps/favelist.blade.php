@@ -54,7 +54,9 @@ $delopt = 0;
         <input type="radio" id="collection" name="ordertype" value="Collection" onClick="typeOpt($cost, 'Collection')">
         <label for="collection">Collection</label><br>
     </form>
-    <form method="POST" action="{{ route('chirps.confirm.confirm', $items, $delopt, $cost) }}">
+    <?php array_push($items, $delopt) ?>
+    <?php array_push($items, $cost) ?>
+    <form method="POST" action="{{ route('chirps.confirm.confirm', $items) }}">
         <button class="mt-4 text-lg text-gray-900" :href="route('chirps.confirm.confirm', $items, $deltype, $cost)" onclick="event.preventDefault(); this.closest('form').submit();">
             {{ __('Place Order') }}
         </button>
