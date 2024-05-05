@@ -55,7 +55,7 @@ function typeopt($cost, $delopt)
         <label for="collection">Collection</label><br>
     </form>
     <form method="POST" action="{{ route('confirmOrder', $items, $delopt, $cost) }}">
-        <button class="mt-4 text-lg text-gray-900" :href="route('chirps.confirm', $items, $deltype, $cost)" onclick="event.preventDefault(); this.closest('form').submit();">
+        <button class="mt-4 text-lg text-gray-900" :href="route('confirmOrder', $items, $deltype, $cost)" onclick="event.preventDefault(); this.closest('form').submit();">
             {{ __('Place Order') }}
         </button>
     </form>
