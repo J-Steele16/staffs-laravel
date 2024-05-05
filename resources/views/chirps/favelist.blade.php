@@ -1,10 +1,12 @@
 <?php $cost = 0;
 $items = [];
 
-function deliveryType($cost, $deltype)
+$delopt = "";
+
+function deliveryType($cost, $delopt)
    {
         $cost += 5;
-        $deltype = "Delivery";
+        $delopt = "Delivery";
    }
 
 ?>
@@ -53,7 +55,7 @@ function deliveryType($cost, $deltype)
         <input type="radio" id="collection" name="ordertype" value="Collection" onClick="deliveryType($cost, 'Delivery')">
         <label for="collection">Collection</label><br>
     </form>
-    <form method="POST" action="{{ route('confirmOrder', $items, $deltype, $cost) }}">
+    <form method="POST" action="{{ route('confirmOrder', $items, $delopt, $cost) }}">
         <button class="mt-4 text-lg text-gray-900" :href="route('chirps.confirm', $items, $deltype, $cost)" onclick="event.preventDefault(); this.closest('form').submit();">
             {{ __('Place Order') }}
         </button>
