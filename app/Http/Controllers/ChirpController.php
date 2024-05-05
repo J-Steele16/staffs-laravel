@@ -21,7 +21,9 @@ class ChirpController extends Controller
    public function removeFromFavourites(Chirp $chirp): RedirectResponse
    {
         $favourites = session('favourites', collect([]));
-        array_diff($favourites, $chirp);
+        foreach (array_keys($favourites, $chirp, true) as $key) {
+            unset($favourites[$key]);
+        }
         session(['favourites' => $favourites]);
         return redirect(route('chirps.favourites'));
    }
