@@ -35,8 +35,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         [ChirpController::class, 'removeFromFavourites']
     )->name('chirps.favourites.remove');
     Route::post(
-        '/chirps/{chirp}/confirm',
-        [ChirpController::class, 'confirm']
+        '/chirps/{chirp}/confirmOrder',
+        [ChirpController::class, 'confirmOrder']
     )->name('chirps.favourites.confirm');
     Route::get(
         '/chirps/favourites',
