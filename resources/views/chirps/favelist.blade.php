@@ -5,7 +5,7 @@ $delopt = 0;
 function typeopt($cost, $delopt)
    {
         $cost += 5;
-        $delopt = 2;
+        $delopt += 2;
    }
 
 ?>
