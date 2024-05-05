@@ -1,8 +1,6 @@
 <?php $cost = 0;
 $items = [];
 
-$delopt = "";
-
 function typeopt($cost, $delopt)
    {
         $cost += 5;
