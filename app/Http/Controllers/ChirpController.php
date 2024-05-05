@@ -26,23 +26,15 @@ class ChirpController extends Controller
         return redirect(route('chirps.favourites'));
    }
 
-   public function confirmOrder($items): RedirectResponse
-   {
-        $confirms = session('confirms', collect([]));
-        $confirms->push($items);
-        session(['confirms' => $confirms]);
-        return redirect(route('chirps.confirm'));
-   }
-
-   public function confirms(): View
-   {
-    $confirms = session('confirms', collect([]));
-    return view('chirps.confirm', [
-
-          'chirps' => $confirms,
-
-    ]);
-}
+    public function confirms($chirplist): RedirectResponse
+    {
+        foreach ($chirplist as $chirp) {
+            $favourites = session('favourites', collect([]));
+            $favourites->forget($chirp);
+            session(['favourites' => $favourites]);
+        };
+        return redirect(route('chirps.index'))
+    }
 
    /**
     * Show the Chirps in Favourites

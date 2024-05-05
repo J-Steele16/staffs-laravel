@@ -1,12 +1,19 @@
 <?php $cost = 0;
 $items = [];
 $delopt = 0;
+$chirplist = [];
 
 // function typeopt($cost, $delopt)
 //    {
 //         $cost += 5;
 //         $delopt += 2;
 //    }
+
+// function endsale($chirplist){
+//     foreach ($chirplist as $chirp) {
+//         route('chirps.favourites.remove', $chirp);
+//     };
+// }
 
 ?>
 
@@ -26,6 +33,7 @@ $delopt = 0;
             </div>
             <?php $cost += $chirp->price ?>;
             <?php array_push($items, $chirp->name) ?>;
+            <?php array_push($chirplist, $chirp) ?>;
                 <x-dropdown>
                     <x-slot name="trigger">
                         <button>
@@ -56,8 +64,8 @@ $delopt = 0;
     </form>
     <?php array_push($items, $delopt) ?>
     <?php array_push($items, $cost) ?>
-    <form action="{{ route('dashboard') }}">
-        <button class="mt-4 text-lg text-gray-900" :href="route('dashboard')" onclick="event.preventDefault(); this.closest('form').submit();">
+    <form action="{{ route('chirps.confirm') }}">
+        <button class="mt-4 text-lg text-gray-900" :href="route('chirps.confirm')" onclick="event.preventDefault(); this.closest('form').submit()">
             {{ __('Place Order') }}
         </button>
     </form>
