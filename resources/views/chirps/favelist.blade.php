@@ -56,7 +56,7 @@ $delopt = 0;
     </form>
     <?php array_push($items, $delopt) ?>
     <?php array_push($items, $cost) ?>
-    <form method="POST" action="route('dashboard')">
+    <form method="POST" action="{{ route('dashboard') }}">
         <button class="mt-4 text-lg text-gray-900" :href="route('dashboard')" onclick="event.preventDefault(); this.closest('form').submit();">
             {{ __('Place Order') }}
         </button>
