@@ -38,6 +38,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         '/chirps/favourites',
         [ChirpController::class, 'favourites']
     )->name('chirps.favourites');
+    Route::get(
+        '/chirps/confirm',
+        [ChirpController::class, 'confirm']
+    )->name('chirps.confirm');
 });   
 
 Route::middleware('auth')->group(function () {
