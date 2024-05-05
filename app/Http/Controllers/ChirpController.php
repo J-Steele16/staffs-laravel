@@ -28,8 +28,21 @@ class ChirpController extends Controller
 
    public function confirmOrder($items, $deltype, $cost): RedirectResponse
    {
-        return redirect(route('chirps.confirm', [$items, $deltype, $cost]));
+        $confirms = session('confirms', collect([]));
+        $confirms->push($items, $deltype, $cost);
+        session(['confirms' => $confirms]);
+        return redirect(route('chirps.confirm'));
    }
+
+   public function confirms(): View
+   {
+    $confirms = session('confirms', collect([]));
+    return view('chirps.confirm', [
+
+          'chirps' => $confirms,
+
+    ]);
+}
 
    /**
     * Show the Chirps in Favourites
