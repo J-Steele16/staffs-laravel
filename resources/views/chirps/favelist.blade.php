@@ -3,7 +3,7 @@ $items = [];
 
 $delopt = "";
 
-function deliveryType($cost, $delopt)
+function typeopt($cost, $delopt)
    {
         $cost += 5;
         $delopt = "Delivery";
@@ -50,9 +50,9 @@ function deliveryType($cost, $delopt)
         <p class="mt-4 text-lg text-gray-900">Order Total: £{{ $cost }}</p>
     </div>
     <form method="POST">
-        <input type="radio" id="delivery" name="ordertype" value="Delivery" onClick="deliveryType($cost, 'Delivery')">
+        <input type="radio" id="delivery" name="ordertype" value="Delivery" onClick="typeOpt($cost, 'Delivery')">
         <label for="delivery">Delivery (+£5)</label><br>
-        <input type="radio" id="collection" name="ordertype" value="Collection" onClick="deliveryType($cost, 'Collection')">
+        <input type="radio" id="collection" name="ordertype" value="Collection" onClick="typeOpt($cost, 'Collection')">
         <label for="collection">Collection</label><br>
     </form>
     <form method="POST" action="{{ route('confirmOrder', $items, $delopt, $cost) }}">
