@@ -1,10 +1,11 @@
 <?php $cost = 0;
 $items = [];
+$delopt = 0;
 
 function typeopt($cost, $delopt)
    {
         $cost += 5;
-        $delopt == "Delivery";
+        $delopt = 2;
    }
 
 ?>
