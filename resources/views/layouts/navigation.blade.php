@@ -16,7 +16,10 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('chirps.index')" :active="request()->routeIs('chirps.index')">
-                        {{ __('Chirps') }}
+                        {{ __('Pizzas') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('chirps.favourites')" :active="request()->routeIs('chirps.favourites')">
+                        {{ __('Current Order') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -74,7 +77,10 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('chirps.index')" :active="request()->routeIs('chirps.index')">
-                {{ __('Chirps') }}
+                {{ __('Pizzas') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('chirps.favourites')" :active="request()->routeIs('chirps.favourites')">
+                {{ __('Current Order') }}
             </x-responsive-nav-link>
         </div>
 

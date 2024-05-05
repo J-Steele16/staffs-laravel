@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('chirps', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('message');
+            $table->string('name');
+            $table->string('toppings');
+            $table->string('size');
+            $table->double('price');
             $table->timestamps();
         });
     }
