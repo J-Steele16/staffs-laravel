@@ -30,6 +30,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         '/chirps/{chirp}/addToFavourites',
         [ChirpController::class, 'addToFavourites']
     )->name('chirps.favourites.add');
+    Route::post(
+        '/chirps/{chirp}/removeFromFavourites',
+        [ChirpController::class, 'removeFromFavourites']
+    )->name('chirps.favourites.remove');
     Route::get(
         '/chirps/favourites',
         [ChirpController::class, 'favourites']

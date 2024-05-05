@@ -10,15 +10,20 @@ use Illuminate\Http\Request;
 class ChirpController extends Controller
 {
 
-    /**
-    * Add the Chirp to Favourites
-    */
-   public function addToFavourites(Chirp $chirp): RedirectResponse
+    public function addToFavourites(Chirp $chirp): RedirectResponse
    {
         $favourites = session('favourites', collect([]));
         $favourites->push($chirp);
         session(['favourites' => $favourites]);
         return redirect(route('chirps.index'));
+   }
+
+   public function removeFromFavourites(Chirp $chirp): RedirectResponse
+   {
+        $favourites = session('favourites', collect([]));
+        $favourites->forget($chirp);
+        session(['favourites' => $favourites]);
+        return redirect(route('chirps.favourites'));
    }
 
    /**
