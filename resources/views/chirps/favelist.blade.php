@@ -48,7 +48,7 @@ $delopt = 0;
     <div class="flex-1">
         <p class="mt-4 text-lg text-gray-900">Order Total: £{{ $cost }}</p>
     </div>
-    <form method="POST">
+    <form>
         <input type="radio" id="delivery" name="ordertype" value="Delivery" onClick="typeOpt($cost, 'Delivery')">
         <label for="delivery">Delivery (+£5)</label><br>
         <input type="radio" id="collection" name="ordertype" value="Collection" onClick="typeOpt($cost, 'Collection')">
@@ -56,7 +56,7 @@ $delopt = 0;
     </form>
     <?php array_push($items, $delopt) ?>
     <?php array_push($items, $cost) ?>
-    <form method="POST" action="{{ route('dashboard') }}">
+    <form action="{{ route('dashboard') }}">
         <button class="mt-4 text-lg text-gray-900" :href="route('dashboard')" onclick="event.preventDefault(); this.closest('form').submit();">
             {{ __('Place Order') }}
         </button>
