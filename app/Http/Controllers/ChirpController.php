@@ -26,7 +26,7 @@ class ChirpController extends Controller
         return redirect(route('chirps.favourites'));
    }
 
-    public function confirms($chirplist): RedirectResponse
+    public function confirms(): RedirectResponse
     {
         $favourites = session('favourites', collect([]));
         $favourites = [];
