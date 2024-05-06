@@ -13,7 +13,7 @@ class ChirpController extends Controller
     public function addToFavourites(Chirp $chirp): RedirectResponse
    {
         $favourites = session('favourites', collect([]));
-        array_push($favourites, $chirp);
+        $favourites->push($chirp);
         session(['favourites' => $favourites]);
         return redirect(route('chirps.index'));
    }
@@ -21,14 +21,12 @@ class ChirpController extends Controller
    public function removeFromFavourites(Chirp $chirp): RedirectResponse
    {
         $favourites = session('favourites', collect([]));
-        if (($key = array_search($chirp, $favourites)) !== false) {
-            array_splice($favourites, $key, 1);
-        }
+        $favourites->forget($chirp);
         session(['favourites' => $favourites]);
         return redirect(route('chirps.favourites'));
    }
 
-    public function confirms(): RedirectResponse
+    public function confirms($chirplist): RedirectResponse
     {
         $favourites = session('favourites', collect([]));
         $favourites = [];
